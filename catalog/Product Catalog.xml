@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <!-- ========================================================= -->
+    <!-- ELECTRONICS CATALOG -->
+    <!-- ========================================================= -->
+
+    <!-- Catalog -->
+    <ProdCatalog prodCatalogId="XML_ELECTRONICS_CATALOG" catalogName="XML Electronics Catalog"/>
+
+    <!-- ========================================================= -->
+    <!-- CATEGORIES -->
+    <!-- ========================================================= -->
+
+    <!-- Root Category -->
+    <ProductCategory
+        productCategoryId="XML_ELEC_ROOT"
+        productCategoryTypeId="CATALOG_CATEGORY"
+        categoryName="Electronics Root (XML)"/>
+
+    <!-- Main Categories -->
+    <ProductCategory
+        productCategoryId="XML_ELEC_MOBILE"
+        productCategoryTypeId="CATALOG_CATEGORY"
+        categoryName="Mobile Phones (XML)"/>
+
+    <ProductCategory
+        productCategoryId="XML_ELEC_ACCESSORIES"
+        productCategoryTypeId="CATALOG_CATEGORY"
+        categoryName="Accessories (XML)"/>
+
+    <!-- Sub Categories -->
+    <ProductCategory
+        productCategoryId="XML_ELEC_GAMING"
+        productCategoryTypeId="CATALOG_CATEGORY"
+        categoryName="Gaming Phones (XML)"/>
+
+    <!-- Promotion Category -->
+    <ProductCategory
+        productCategoryId="XML_ELEC_PROMO"
+        productCategoryTypeId="CATALOG_CATEGORY"
+        categoryName="Electronics Promotion (XML)"/>
+
+    <!-- ========================================================= -->
+    <!-- CATEGORY ROLLUPS -->
+    <!-- ========================================================= -->
+
+    <ProductCategoryRollup
+        productCategoryId="XML_ELEC_MOBILE"
+        parentProductCategoryId="XML_ELEC_ROOT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductCategoryRollup
+        productCategoryId="XML_ELEC_ACCESSORIES"
+        parentProductCategoryId="XML_ELEC_ROOT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductCategoryRollup
+        productCategoryId="XML_ELEC_GAMING"
+        parentProductCategoryId="XML_ELEC_MOBILE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductCategoryRollup
+        productCategoryId="XML_ELEC_PROMO"
+        parentProductCategoryId="XML_ELEC_ROOT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- CATALOG CATEGORY LINKS -->
+    <!-- ========================================================= -->
+
+    <ProdCatalogCategory
+        prodCatalogId="XML_ELECTRONICS_CATALOG"
+        productCategoryId="XML_ELEC_ROOT"
+        prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProdCatalogCategory
+        prodCatalogId="XML_ELECTRONICS_CATALOG"
+        productCategoryId="XML_ELEC_PROMO"
+        prodCatalogCategoryTypeId="PCCT_PROMOTIONS"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- FEATURE CATEGORIES -->
+    <!-- ========================================================= -->
+
+    <ProductFeatureCategory
+        productFeatureCategoryId="XML_RAM_FEATURE"
+        description="RAM Variants (XML)"/>
+
+    <ProductFeatureCategory
+        productFeatureCategoryId="XML_COLOR_FEATURE"
+        description="Phone Colors (XML)"/>
+
+    <ProductFeatureCategory
+        productFeatureCategoryId="XML_STORAGE_FEATURE"
+        description="Storage Variants (XML)"/>
+
+    <!-- ========================================================= -->
+    <!-- FEATURES -->
+    <!-- ========================================================= -->
+
+    <!-- RAM -->
+    <ProductFeature
+        productFeatureId="XML_RAM_8GB"
+        productFeatureTypeId="MEMORY"
+        productFeatureCategoryId="XML_RAM_FEATURE"
+        description="8GB RAM"/>
+
+    <ProductFeature
+        productFeatureId="XML_RAM_12GB"
+        productFeatureTypeId="MEMORY"
+        productFeatureCategoryId="XML_RAM_FEATURE"
+        description="12GB RAM"/>
+
+    <!-- Storage -->
+    <ProductFeature
+        productFeatureId="XML_STORAGE_128"
+        productFeatureTypeId="CAPACITY"
+        productFeatureCategoryId="XML_STORAGE_FEATURE"
+        description="128GB Storage"/>
+
+    <ProductFeature
+        productFeatureId="XML_STORAGE_256"
+        productFeatureTypeId="CAPACITY"
+        productFeatureCategoryId="XML_STORAGE_FEATURE"
+        description="256GB Storage"/>
+
+    <!-- Colors -->
+    <ProductFeature
+        productFeatureId="XML_COLOR_BLACK"
+        productFeatureTypeId="COLOR"
+        productFeatureCategoryId="XML_COLOR_FEATURE"
+        description="Black"/>
+
+    <ProductFeature
+        productFeatureId="XML_COLOR_BLUE"
+        productFeatureTypeId="COLOR"
+        productFeatureCategoryId="XML_COLOR_FEATURE"
+        description="Blue"/>
+
+    <!-- ========================================================= -->
+    <!-- VIRTUAL PRODUCT -->
+    <!-- ========================================================= -->
+
+    <Product
+        productId="GX-PHONE"
+        productTypeId="GOOD"
+        isVirtual="Y"
+        isVariant="N"
+        internalName="GX Gaming Smartphone"/>
+
+    <!-- Product Category Membership -->
+    <ProductCategoryMember
+        productCategoryId="XML_ELEC_GAMING"
+        productId="GX-PHONE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductCategoryMember
+        productCategoryId="XML_ELEC_PROMO"
+        productId="GX-PHONE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- SELECTABLE FEATURES FOR VIRTUAL PRODUCT -->
+    <!-- ========================================================= -->
+
+    <!-- RAM -->
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_RAM_8GB"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_RAM_12GB"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- Storage -->
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_STORAGE_128"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_STORAGE_256"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- Colors -->
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_COLOR_BLACK"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE"
+        productFeatureId="XML_COLOR_BLUE"
+        productFeatureApplTypeId="SELECTABLE_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- VARIANT PRODUCT 1 -->
+    <!-- GX-PHONE-BLACK-8-128 -->
+    <!-- ========================================================= -->
+
+    <Product
+        productId="GX-PHONE-BLK-8-128"
+        productTypeId="GOOD"
+        isVirtual="N"
+        isVariant="Y"
+        internalName="GX Phone Black 8GB 128GB"/>
+
+    <ProductAssoc
+        productId="GX-PHONE"
+        productIdTo="GX-PHONE-BLK-8-128"
+        productAssocTypeId="PRODUCT_VARIANT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLK-8-128"
+        productFeatureId="XML_RAM_8GB"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLK-8-128"
+        productFeatureId="XML_STORAGE_128"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLK-8-128"
+        productFeatureId="XML_COLOR_BLACK"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- VARIANT PRODUCT 2 -->
+    <!-- GX-PHONE-BLUE-12-256 -->
+    <!-- ========================================================= -->
+
+    <Product
+        productId="GX-PHONE-BLU-12-256"
+        productTypeId="GOOD"
+        isVirtual="N"
+        isVariant="Y"
+        internalName="GX Phone Blue 12GB 256GB"/>
+
+    <ProductAssoc
+        productId="GX-PHONE"
+        productIdTo="GX-PHONE-BLU-12-256"
+        productAssocTypeId="PRODUCT_VARIANT"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLU-12-256"
+        productFeatureId="XML_RAM_12GB"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLU-12-256"
+        productFeatureId="XML_STORAGE_256"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <ProductFeatureAppl
+        productId="GX-PHONE-BLU-12-256"
+        productFeatureId="XML_COLOR_BLUE"
+        productFeatureApplTypeId="STANDARD_FEATURE"
+        fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- PROMOTION -->
+    <!-- ========================================================= -->
+
+    <ProductPromo
+        productPromoId="XML_ELEC_PROMO_01"
+        promoName="Gaming Phone Discount"
+        userEntered="Y"/>
+
+    <ProductPromoRule
+        productPromoId="XML_ELEC_PROMO_01"
+        productPromoRuleId="01"
+        ruleName="Gaming Phone Promo Rule"/>
+
+    <!-- Condition: Minimum quantity 1 -->
+    <ProductPromoCond
+        productPromoId="XML_ELEC_PROMO_01"
+        productPromoRuleId="01"
+        productPromoCondSeqId="01"
+        inputParamEnumId="PPIP_PRODUCT_QUANT"
+        operatorEnumId="PPC_EQ"
+        condValue="1"/>
+
+    <!-- Action: 15% discount -->
+    <ProductPromoAction
+        productPromoId="XML_ELEC_PROMO_01"
+        productPromoRuleId="01"
+        productPromoActionSeqId="01"
+        productPromoActionEnumId="PROMO_PROD_DISC"
+        amount="15"/>
+
+    <!-- Promotion Applied to Promotion Category -->
+    <ProductPromoCategory
+        productPromoId="XML_ELEC_PROMO_01"
+        productPromoRuleId="01"
+        productPromoActionSeqId="01"
+        productPromoCondSeqId="_NA_"
+        productCategoryId="XML_ELEC_PROMO"
+        andGroupId="_NA_"
+        productPromoApplEnumId="PPPA_INCLUDE"/>
+
+</entity-engine-xml>
