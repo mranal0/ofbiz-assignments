@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
+
+    <title>Relationship Manager Custom Data Model</title>
+    <description>Custom Party Model for Assignment</description>
+
+    <entity entity-name="RmgrParty" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Party Entity">
+        <field name="partyId" type="id"></field>
+        <field name="partyTypeId" type="id-long"></field> <prim-key field="partyId"/>
+    </entity>
+
+    <entity entity-name="RmgrPerson" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Person Entity">
+        <field name="partyId" type="id"></field>
+        <field name="firstName" type="name"></field>
+        <field name="lastName" type="name"></field>
+        <field name="birthDate" type="date"></field>
+        <prim-key field="partyId"/>
+        <relation type="one" fk-name="FK_RMGR_PER_PARTY" rel-entity-name="RmgrParty">
+            <key-map field-name="partyId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="RmgrOrganization" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Organization Entity">
+        <field name="partyId" type="id"></field>
+        <field name="organizationName" type="name"></field>
+        <prim-key field="partyId"/>
+        <relation type="one" fk-name="FK_RMGR_ORG_PARTY" rel-entity-name="RmgrParty">
+            <key-map field-name="partyId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="RmgrRoleType" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Role Type Entity">
+        <field name="roleTypeId" type="id"></field>
+        <field name="description" type="description"></field>
+        <prim-key field="roleTypeId"/>
+    </entity>
+
+    <entity entity-name="RmgrPartyRole" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Party Role Entity">
+        <field name="partyId" type="id"></field>
+        <field name="roleTypeId" type="id"></field>
+
+        <prim-key field="partyId"/>
+        <prim-key field="roleTypeId"/>
+
+        <relation type="one" fk-name="FK_RMGR_PRLE_PARTY" rel-entity-name="RmgrParty">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation type="one" fk-name="FK_RMGR_PRLE_TYPE" rel-entity-name="RmgrRoleType">
+            <key-map field-name="roleTypeId"/>
+        </relation>
+    </entity>
+    <entity entity-name="RmgrContactMech" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Contact Mechanism Base">
+        <field name="contactMechId" type="id"></field>
+        <field name="contactMechTypeId" type="id"></field> <prim-key field="contactMechId"/>
+    </entity>
+
+    <entity entity-name="RmgrPostalAddress" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Postal Address Details">
+        <field name="contactMechId" type="id"></field>
+        <field name="address1" type="name"></field>
+        <field name="address2" type="name"></field>
+        <field name="city" type="name"></field>
+        <field name="postalCode" type="short-varchar"></field>
+        <prim-key field="contactMechId"/>
+        <relation type="one" fk-name="FK_RMGR_PADR_CMECH" rel-entity-name="RmgrContactMech">
+            <key-map field-name="contactMechId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="RmgrTelecomNumber" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Telecom Number Details">
+        <field name="contactMechId" type="id"></field>
+        <field name="countryCode" type="short-varchar"></field>
+        <field name="areaCode" type="short-varchar"></field>
+        <field name="contactNumber" type="short-varchar"></field>
+        <prim-key field="contactMechId"/>
+        <relation type="one" fk-name="FK_RMGR_TNMB_CMECH" rel-entity-name="RmgrContactMech">
+            <key-map field-name="contactMechId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="RmgrPartyContactMech" package-name="org.apache.ofbiz.relationshipmgr" title="Custom Party Contact Mech Association">
+        <field name="partyId" type="id"></field>
+        <field name="contactMechId" type="id"></field>
+        <field name="fromDate" type="date-time"></field>
+        <field name="thruDate" type="date-time"></field>
+
+        <prim-key field="partyId"/>
+        <prim-key field="contactMechId"/>
+        <prim-key field="fromDate"/>
+
+        <relation type="one" fk-name="FK_RMGR_PCM_PARTY" rel-entity-name="RmgrParty">
+            <key-map field-name="partyId"/>
+        </relation>
+        <relation type="one" fk-name="FK_RMGR_PCM_CMECH" rel-entity-name="RmgrContactMech">
+            <key-map field-name="contactMechId"/>
+        </relation>
+    </entity>
+</entitymodel>

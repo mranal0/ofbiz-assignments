@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Widget-Form" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+    <!-- Find Form for RmgrParty -->
+    <form name="FindRmgrParty" type="single" target="FindRmgrParty" default-entity-name="RmgrParty">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="partyId" title="Party ID"><text-find/></field>
+        <field name="partyTypeId" title="Party Type">
+            <drop-down allow-empty="true">
+                <option key="PERSON" description="Person"/>
+                <option key="ORGANIZATION" description="Organization"/>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="Search"><submit button-type="button"/></field>
+    </form>
+
+    <!-- List Grid for RmgrParty -->
+    <grid name="ListRmgrParty" list-name="listIt" paginate-target="FindRmgrParty" default-entity-name="RmgrParty"
+          separate-columns="true" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="RmgrParty"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="partyId" title="Party ID" sort-field="true"><display/></field>
+        <field name="partyTypeId" title="Party Type" sort-field="true"><display/></field>
+        <field name="personName" title="Person Name">
+            <display-entity entity-name="RmgrPerson" key-field-name="partyId" description="${firstName} ${lastName}"/>
+        </field>
+        <field name="organizationName" title="Organization Name">
+            <display-entity entity-name="RmgrOrganization" key-field-name="partyId" description="${organizationName}"/>
+        </field>
+    </grid>
+
+    <!-- Find Form for RmgrPerson -->
+    <form name="FindRmgrPerson" type="single" target="FindRmgrPerson" default-entity-name="RmgrPerson">
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="partyId" title="Party ID"><text-find/></field>
+        <field name="firstName" title="First Name"><text-find/></field>
+        <field name="lastName" title="Last Name"><text-find/></field>
+        <field name="searchButton" title="Search"><submit button-type="button"/></field>
+    </form>
+
+    <!-- List Grid for RmgrPerson -->
+    <grid name="ListRmgrPerson" list-name="listIt" paginate-target="FindRmgrPerson" default-entity-name="RmgrPerson"
+          separate-columns="true" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="entityName" value="RmgrPerson"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="partyId" title="Party ID" sort-field="true"><display/></field>
+        <field name="firstName" title="First Name" sort-field="true"><display/></field>
+        <field name="lastName" title="Last Name" sort-field="true"><display/></field>
+        <field name="birthDate" title="Birth Date" sort-field="true"><display/></field>
+    </grid>
+</forms>

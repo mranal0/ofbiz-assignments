@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+    <!-- ROLE TYPES -->
+
+    <RmgrRoleType roleTypeId="COLLEGE" description="College"/>
+    <RmgrRoleType roleTypeId="DEPARTMENT" description="Department"/>
+    <RmgrRoleType roleTypeId="STUDENT" description="Student"/>
+    <RmgrRoleType roleTypeId="TEACHER" description="Teaching Staff"/>
+
+    <!-- COLLEGE -->
+
+    <RmgrParty partyId="COLG100" partyTypeId="ORG"/>
+
+    <RmgrOrganization
+            partyId="COLG100"
+            organizationName="Springfield Engineering College"/>
+
+    <RmgrPartyRole
+            partyId="COLG100"
+            roleTypeId="COLLEGE"/>
+
+    <!-- DEPARTMENTS -->
+
+    <RmgrParty partyId="DEPT100" partyTypeId="ORG"/>
+    <RmgrOrganization
+            partyId="DEPT100"
+            organizationName="Computer Science Department"/>
+    <RmgrPartyRole
+            partyId="DEPT100"
+            roleTypeId="DEPARTMENT"/>
+
+    <RmgrParty partyId="DEPT101" partyTypeId="ORG"/>
+    <RmgrOrganization
+            partyId="DEPT101"
+            organizationName="Mechanical Department"/>
+    <RmgrPartyRole
+            partyId="DEPT101"
+            roleTypeId="DEPARTMENT"/>
+
+    <RmgrParty partyId="DEPT102" partyTypeId="ORG"/>
+    <RmgrOrganization
+            partyId="DEPT102"
+            organizationName="Electrical Department"/>
+    <RmgrPartyRole
+            partyId="DEPT102"
+            roleTypeId="DEPARTMENT"/>
+
+    <!-- TEACHERS -->
+
+    <RmgrParty partyId="TCHR100" partyTypeId="PERSON"/>
+    <RmgrPerson
+            partyId="TCHR100"
+            firstName="Amit"
+            lastName="Sharma"
+            birthDate="1980-05-10"/>
+    <RmgrPartyRole
+            partyId="TCHR100"
+            roleTypeId="TEACHER"/>
+
+    <RmgrParty partyId="TCHR101" partyTypeId="PERSON"/>
+    <RmgrPerson
+            partyId="TCHR101"
+            firstName="Neha"
+            lastName="Verma"
+            birthDate="1985-07-12"/>
+    <RmgrPartyRole
+            partyId="TCHR101"
+            roleTypeId="TEACHER"/>
+
+    <!-- STUDENTS -->
+
+    <RmgrParty partyId="STU100" partyTypeId="PERSON"/>
+    <RmgrPerson
+            partyId="STU100"
+            firstName="Rahul"
+            lastName="Yadav"
+            birthDate="2003-02-20"/>
+    <RmgrPartyRole
+            partyId="STU100"
+            roleTypeId="STUDENT"/>
+
+    <RmgrParty partyId="STU101" partyTypeId="PERSON"/>
+    <RmgrPerson
+            partyId="STU101"
+            firstName="Priya"
+            lastName="Sahu"
+            birthDate="2004-03-11"/>
+    <RmgrPartyRole
+            partyId="STU101"
+            roleTypeId="STUDENT"/>
+
+    <RmgrParty partyId="STU102" partyTypeId="PERSON"/>
+    <RmgrPerson
+            partyId="STU102"
+            firstName="Arjun"
+            lastName="Patel"
+            birthDate="2002-11-03"/>
+    <RmgrPartyRole
+            partyId="STU102"
+            roleTypeId="STUDENT"/>
+
+    <!-- CONTACT MECH -->
+
+    <RmgrContactMech
+            contactMechId="CM100"
+            contactMechTypeId="POSTAL_ADDRESS"/>
+
+    <RmgrPostalAddress
+            contactMechId="CM100"
+            address1="Street 21"
+            address2="Shanti Nagar"
+            city="Raipur"
+            postalCode="492001"/>
+
+    <RmgrPartyContactMech
+            partyId="STU100"
+            contactMechId="CM100"
+            fromDate="2026-01-01 00:00:00.0"/>
+
+    <!-- TELECOM -->
+
+    <RmgrContactMech
+            contactMechId="CM200"
+            contactMechTypeId="TELECOM_NUMBER"/>
+
+    <RmgrTelecomNumber
+            contactMechId="CM200"
+            countryCode="91"
+            areaCode="771"
+            contactNumber="9876543210"/>
+
+    <RmgrPartyContactMech
+            partyId="TCHR100"
+            contactMechId="CM200"
+            fromDate="2026-01-01 00:00:00.0"/>
+
+</entity-engine-xml>
